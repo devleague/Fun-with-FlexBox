@@ -1,17 +1,163 @@
 // Imports
-
+@import "scss/partials/_clearfix.scss";
+@import "scss/partials/_general_styles.scss";
+@import "scss/partials/_reset.scss";
 
 
 // 1. Many small items in a grid
+.small-grid-flexbox{
+  ul{
+    width: 400px;
+    margin: auto;
+    display: flex;
+    flex-flow: row wrap;
 
+    @include respond-to('medium'){
+      width: 400px;
+    }
+
+    li{
+      flex: 0 0 40px;
+      text-align: center;
+      box-sizing: border-box;
+      line-height: 40px;
+      flex: 0 0 10%;
+
+      @include respond-to('medium'){
+        flex: 0 0 40px;
+      }
+    }
+  }
+}
 
 
 // 2. 2-Column Grid
+.two-col-grid-flexbox{
+  display: flex;
+  flex-flow: row wrap;
+  align-items: stretch;
 
+  .column-1{
+    flex: 0 0 100%;
+    box-sizing: border-box;
 
+    @include respond-to('medium'){
+      flex: 0 0 50%;
+      order:2;
+      align-self: flex-start;
+    }
+  }
+  .column-2{
+    flex: 0 0 100%;
+    box-sizing: border-box;
+
+    @include respond-to('medium'){
+      order:1;
+      flex: 0 0 50%;
+    }
+  }
+}
 
 // 3. Centering
+.centering-formula-1{
+  display:flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
 
+  .centered{
+    //flex: 0 0 100%;
+    margin: auto;
+  }
+}
+.centering-formula-2{
+  display:flex;
+  flex-flow: row nowrap;
+  //justify-content: center;
+  //align-items: center;
 
+  .centered{
+    //flex: 0 0 100%;
+    margin: auto;
+  }
+}
 
 // 4. Ordering
+.ordering-block{
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+
+  @include respond-to('medium'){
+    flex-flow: row nowrap;
+  }
+  @include respond-to('large'){
+    flex-flow: row nowrap;
+    justify-content: space-between;
+  }
+
+  .item-a{
+    flex: 1 1 100%;
+    order:3;
+    margin: auto;
+    box-sizing: border-box;
+
+    @include respond-to('medium'){
+      order:1;
+      flex: 0 0 10%;
+    }
+
+    @include respond-to('large'){
+      order:4;
+      flex: 0 0 15%;
+    }
+  }
+  .item-b{
+    flex: 1 1 100%;
+    order:2;
+    margin: auto;
+    box-sizing: border-box;
+
+    @include respond-to('medium'){
+      order:2;
+      flex: 0 0 20%;
+    }
+
+    @include respond-to('large'){
+      order:3;
+      flex: 0 0 5%;
+    }
+  }
+  .item-c{
+    flex: 1 1 100%;
+    order:1;
+    margin: auto;
+    box-sizing: border-box;
+
+    @include respond-to('medium'){
+      order:3;
+      flex: 0 0 40%;
+    }
+
+    @include respond-to('large'){
+      order:2;
+      flex: 0 0 25%;
+    }
+  }
+  .item-d{
+    flex: 1 1 100%;
+    order:4;
+    margin: auto;
+    box-sizing: border-box;
+
+    @include respond-to('medium'){
+      order:4;
+      flex: 0 0 30%;
+    }
+
+    @include respond-to('large'){
+      order:1;
+      flex: 0 0 35%;
+    }
+  }
+}
